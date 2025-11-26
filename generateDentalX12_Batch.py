@@ -105,7 +105,7 @@ def generate_dental_x12_batch(json_file_path):
     # Write file
     output_dir = Path("Output/.837D")
     output_dir.mkdir(parents=True, exist_ok=True)
-    file_path = output_dir / "dental_claim_837.txt"
+    file_path = output_dir / "Batch_837D.txt"
     with open(file_path, "w", encoding="utf-8") as f:
         f.write("\n".join(x12_output))
     print(f"X12 batch file written: {file_path}")
