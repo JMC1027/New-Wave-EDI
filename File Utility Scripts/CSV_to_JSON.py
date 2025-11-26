@@ -109,7 +109,7 @@ def csv_to_nested_json(csv_path, output_folder="Output/JSON_Output"):
         json.dump(claims_list, f, indent=4)
 
     print(f"Nested JSON created at: {json_path}")
-
-# Example usage
+    
 csv_file = "Output/CSV_Output/mockedDentalClaim.csv"
 csv_to_nested_json(csv_file)
+
