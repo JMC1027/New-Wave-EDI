@@ -10,8 +10,8 @@ def generate():
         json_file_path = "Output/JSON_Output/mockedDentalClaim.json"
         generate_dental_x12_single(json_file_path)
 
-        # json_file_path = "Output/JSON_Output/mockedDentalClaim.json"
-        # generate_dental_x12_single(json_file_path)
+        #json_file_path = "Output/JSON_Output/mockedDentalClaim.json"
+        #generate_dental_x12_single(json_file_path)
 
 
     except Exception as e:
@@ -19,5 +19,6 @@ def generate():
         traceback.print_exc()
 
 generate()
+
 
     
