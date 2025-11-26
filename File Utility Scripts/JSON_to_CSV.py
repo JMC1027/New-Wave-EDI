@@ -102,6 +102,6 @@ def json_to_csv(json_path, output_folder="Output/CSV_Output"):
 
     print(f"CSV file created at: {csv_path}")
 
-# Example usage
 json_file = "Output/JSON_Output/mockedDentalClaim.json"
 json_to_csv(json_file)
+
