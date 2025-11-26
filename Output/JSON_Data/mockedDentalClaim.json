@@ -1,431 +1,376 @@
 [
     {
-        "ClaimID": "CLM0001",
-        "PatientID": "PAT001",
-        "PatientFirstName": "Jane",
-        "PatientLastName": "Doe",
-        "PatientDOB": "1980-05-15",
-        "PatientGender": "F",
-        "PatientAddress": "456 Elm St",
-        "PatientCity": "Othertown",
-        "PatientState": "CA",
-        "PatientZip": "90211",
-        "SubscriberID": "SUB123",
-        "InsurancePayerName": "Best Dental Insurance",
-        "InsurancePayerID": "12345",
-        "ProviderNPI": "1234567890",
-        "ProviderFirstName": "John",
-        "ProviderLastName": "Smith",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-11-25",
-        "PlaceOfService": "11",
+        "ClaimDetails": {
+            "ClaimID": "CLM0001",
+            "ClaimAmount": "250",
+            "PlaceOfService": "11",
+            "FacilityCode": "01",
+            "PatientSignatureOnFile": "Y",
+            "InsuranceAssignment": "Y",
+            "ReleaseOfInformation": "Y",
+            "TreatmentResultingCode": "B",
+            "ICN": "ICN123"
+        },
+        "Payer": {
+            "Name": "Best Dental Insurance",
+            "PayerID": "12345"
+        },
+        "BillingProvider": {
+            "ProviderName": "Dr. John Smith",
+            "NPI": "1234567890",
+            "Address": "123 Main St",
+            "Address2": "",
+            "City": "Anytown",
+            "State": "CA",
+            "Zip": "90210",
+            "TaxID": "987654321",
+            "Taxonomy": "207Q00000X"
+        },
+        "Subscriber": {
+            "SubscriberID": "SUB123",
+            "LastName": "Doe",
+            "FirstName": "Jane",
+            "Middle": "A",
+            "DOB": "1980-05-15",
+            "Gender": "F",
+            "Address": "456 Elm St",
+            "Address2": "",
+            "City": "Othertown",
+            "State": "CA",
+            "Zip": "90211"
+        },
+        "RenderingProvider": {
+            "FirstName": "John",
+            "LastName": "Smith",
+            "Middle": "",
+            "NPI": "1239876543"
+        },
         "ProcedureLines": [
             {
-                "ToothNumber": "14",
-                "Surface": "B",
                 "ProcedureCode": "D1110",
-                "ProcedureDescription": "Prophylaxis Adult",
-                "Units": "1",
                 "Fee": "100",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            },
-            {
-                "ToothNumber": "15",
-                "Surface": "M",
-                "ProcedureCode": "D1120",
-                "ProcedureDescription": "Prophylaxis Child",
                 "Units": "1",
-                "Fee": "150",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            }
-        ]
-    },
-    {
-        "ClaimID": "CLM0002",
-        "PatientID": "PAT002",
-        "PatientFirstName": "Bob",
-        "PatientLastName": "Smith",
-        "PatientDOB": "1975-08-20",
-        "PatientGender": "M",
-        "PatientAddress": "321 Pine St",
-        "PatientCity": "Oldtown",
-        "PatientState": "NY",
-        "PatientZip": "10002",
-        "SubscriberID": "SUB124",
-        "InsurancePayerName": "Superior Dental",
-        "InsurancePayerID": "67890",
-        "ProviderNPI": "9876543210",
-        "ProviderFirstName": "Emily",
-        "ProviderLastName": "Brown",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-11-26",
-        "PlaceOfService": "11",
-        "ProcedureLines": [
-            {
-                "ToothNumber": "3",
-                "Surface": "B",
-                "ProcedureCode": "D1206",
-                "ProcedureDescription": "Fluoride Varnish",
-                "Units": "1",
-                "Fee": "200",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            },
-            {
-                "ToothNumber": "4",
-                "Surface": "M",
-                "ProcedureCode": "D2140",
-                "ProcedureDescription": "Amalgam Filling",
-                "Units": "1",
-                "Fee": "150",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            }
-        ]
-    },
-    {
-        "ClaimID": "CLM0003",
-        "PatientID": "PAT003",
-        "PatientFirstName": "Emily",
-        "PatientLastName": "Johnson",
-        "PatientDOB": "1992-02-10",
-        "PatientGender": "F",
-        "PatientAddress": "789 Pine St",
-        "PatientCity": "Largetown",
-        "PatientState": "TX",
-        "PatientZip": "75002",
-        "SubscriberID": "SUB125",
-        "InsurancePayerName": "Premium Dental Insurance",
-        "InsurancePayerID": "12346",
-        "ProviderNPI": "1234567891",
-        "ProviderFirstName": "Sarah",
-        "ProviderLastName": "Miller",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-11-27",
-        "PlaceOfService": "11",
-        "ProcedureLines": [
-            {
-                "ToothNumber": "5",
-                "Surface": "B",
-                "ProcedureCode": "D1206",
-                "ProcedureDescription": "Fluoride Varnish",
-                "Units": "1",
-                "Fee": "200",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            },
-            {
-                "ToothNumber": "6",
-                "Surface": "M",
-                "ProcedureCode": "D2140",
-                "ProcedureDescription": "Amalgam Filling",
-                "Units": "1",
-                "Fee": "150",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            }
-        ]
-    },
-    {
-        "ClaimID": "CLM0004",
-        "PatientID": "PAT004",
-        "PatientFirstName": "Chris",
-        "PatientLastName": "Williams",
-        "PatientDOB": "1985-03-15",
-        "PatientGender": "M",
-        "PatientAddress": "456 Maple St",
-        "PatientCity": "Westtown",
-        "PatientState": "CA",
-        "PatientZip": "90213",
-        "SubscriberID": "SUB126",
-        "InsurancePayerName": "Top Tier Dental",
-        "InsurancePayerID": "12347",
-        "ProviderNPI": "1234567892",
-        "ProviderFirstName": "Michael",
-        "ProviderLastName": "Adams",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-11-28",
-        "PlaceOfService": "11",
-        "ProcedureLines": [
-            {
-                "ToothNumber": "7",
-                "Surface": "B",
-                "ProcedureCode": "D1110",
-                "ProcedureDescription": "Prophylaxis Adult",
-                "Units": "1",
-                "Fee": "200",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            },
-            {
-                "ToothNumber": "8",
-                "Surface": "M",
-                "ProcedureCode": "D1120",
-                "ProcedureDescription": "Prophylaxis Child",
-                "Units": "1",
-                "Fee": "150",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            }
-        ]
-    },
-    {
-        "ClaimID": "CLM0005",
-        "PatientID": "PAT005",
-        "PatientFirstName": "Amanda",
-        "PatientLastName": "Taylor",
-        "PatientDOB": "1990-07-25",
-        "PatientGender": "F",
-        "PatientAddress": "123 Oak St",
-        "PatientCity": "Southtown",
-        "PatientState": "NV",
-        "PatientZip": "89013",
-        "SubscriberID": "SUB127",
-        "InsurancePayerName": "Reliable Dental",
-        "InsurancePayerID": "12348",
-        "ProviderNPI": "1234567893",
-        "ProviderFirstName": "Laura",
-        "ProviderLastName": "White",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-11-29",
-        "PlaceOfService": "11",
-        "ProcedureLines": [
-            {
-                "ToothNumber": "9",
-                "Surface": "B",
-                "ProcedureCode": "D1206",
-                "ProcedureDescription": "Fluoride Varnish",
-                "Units": "1",
-                "Fee": "250",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            },
-            {
-                "ToothNumber": "10",
-                "Surface": "M",
-                "ProcedureCode": "D2140",
-                "ProcedureDescription": "Amalgam Filling",
-                "Units": "1",
-                "Fee": "200",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            }
-        ]
-    },
-    {
-        "ClaimID": "CLM0006",
-        "PatientID": "PAT006",
-        "PatientFirstName": "George",
-        "PatientLastName": "Harris",
-        "PatientDOB": "1988-12-01",
-        "PatientGender": "M",
-        "PatientAddress": "789 Birch St",
-        "PatientCity": "Northtown",
-        "PatientState": "CA",
-        "PatientZip": "90214",
-        "SubscriberID": "SUB128",
-        "InsurancePayerName": "Elite Dental",
-        "InsurancePayerID": "12349",
-        "ProviderNPI": "1234567894",
-        "ProviderFirstName": "Nancy",
-        "ProviderLastName": "Lee",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-11-30",
-        "PlaceOfService": "11",
-        "ProcedureLines": [
-            {
-                "ToothNumber": "11",
-                "Surface": "B",
-                "ProcedureCode": "D1110",
-                "ProcedureDescription": "Prophylaxis Adult",
-                "Units": "1",
-                "Fee": "200",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            },
-            {
-                "ToothNumber": "12",
-                "Surface": "M",
-                "ProcedureCode": "D1120",
-                "ProcedureDescription": "Prophylaxis Child",
-                "Units": "1",
-                "Fee": "150",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            }
-        ]
-    },
-    {
-        "ClaimID": "CLM0007",
-        "PatientID": "PAT007",
-        "PatientFirstName": "Olivia",
-        "PatientLastName": "Martinez",
-        "PatientDOB": "1995-06-14",
-        "PatientGender": "F",
-        "PatientAddress": "234 Maple St",
-        "PatientCity": "Eastcity",
-        "PatientState": "NY",
-        "PatientZip": "10005",
-        "SubscriberID": "SUB129",
-        "InsurancePayerName": "Smile Dental",
-        "InsurancePayerID": "12350",
-        "ProviderNPI": "1234567895",
-        "ProviderFirstName": "David",
-        "ProviderLastName": "King",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-12-01",
-        "PlaceOfService": "11",
-        "ProcedureLines": [
-            {
-                "ToothNumber": "13",
-                "Surface": "B",
-                "ProcedureCode": "D1206",
-                "ProcedureDescription": "Fluoride Varnish",
-                "Units": "1",
-                "Fee": "220",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            },
-            {
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "UR",
+                "DiagnosisCodePointer": "",
                 "ToothNumber": "14",
-                "Surface": "M",
-                "ProcedureCode": "D2140",
-                "ProcedureDescription": "Amalgam Filling",
-                "Units": "1",
-                "Fee": "180",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            }
-        ]
-    },
-    {
-        "ClaimID": "CLM0008",
-        "PatientID": "PAT008",
-        "PatientFirstName": "Liam",
-        "PatientLastName": "Brown",
-        "PatientDOB": "1983-09-22",
-        "PatientGender": "M",
-        "PatientAddress": "567 Oak St",
-        "PatientCity": "Westcity",
-        "PatientState": "TX",
-        "PatientZip": "75003",
-        "SubscriberID": "SUB130",
-        "InsurancePayerName": "Bright Dental",
-        "InsurancePayerID": "12351",
-        "ProviderNPI": "1234567896",
-        "ProviderFirstName": "Emma",
-        "ProviderLastName": "Scott",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-12-02",
-        "PlaceOfService": "11",
-        "ProcedureLines": [
+                "ToothSurfaceCode": "B",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-25"
+            },
             {
+                "ProcedureCode": "D1120",
+                "Fee": "150",
+                "Units": "1",
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "LL",
+                "DiagnosisCodePointer": "",
                 "ToothNumber": "15",
-                "Surface": "B",
-                "ProcedureCode": "D1110",
-                "ProcedureDescription": "Prophylaxis Adult",
-                "Units": "1",
-                "Fee": "210",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
-            },
-            {
-                "ToothNumber": "16",
-                "Surface": "M",
-                "ProcedureCode": "D1120",
-                "ProcedureDescription": "Prophylaxis Child",
-                "Units": "1",
-                "Fee": "160",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
+                "ToothSurfaceCode": "M",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-25"
             }
         ]
     },
     {
-        "ClaimID": "CLM0009",
-        "PatientID": "PAT009",
-        "PatientFirstName": "Sophia",
-        "PatientLastName": "Davis",
-        "PatientDOB": "1991-11-11",
-        "PatientGender": "F",
-        "PatientAddress": "890 Pine St",
-        "PatientCity": "Southcity",
-        "PatientState": "NV",
-        "PatientZip": "89014",
-        "SubscriberID": "SUB131",
-        "InsurancePayerName": "Healthy Dental",
-        "InsurancePayerID": "12352",
-        "ProviderNPI": "1234567897",
-        "ProviderFirstName": "James",
-        "ProviderLastName": "Moore",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-12-03",
-        "PlaceOfService": "11",
+        "ClaimDetails": {
+            "ClaimID": "CLM0002",
+            "ClaimAmount": "400",
+            "PlaceOfService": "11",
+            "FacilityCode": "01",
+            "PatientSignatureOnFile": "Y",
+            "InsuranceAssignment": "Y",
+            "ReleaseOfInformation": "Y",
+            "TreatmentResultingCode": "B",
+            "ICN": "ICN124"
+        },
+        "Payer": {
+            "Name": "Superior Dental",
+            "PayerID": "67890"
+        },
+        "BillingProvider": {
+            "ProviderName": "Dr. Emily Brown",
+            "NPI": "9876543210",
+            "Address": "789 Oak St",
+            "Address2": "Suite 100",
+            "City": "Newcity",
+            "State": "NY",
+            "Zip": "10001",
+            "TaxID": "123456789",
+            "Taxonomy": "207Q00000X"
+        },
+        "Subscriber": {
+            "SubscriberID": "SUB124",
+            "LastName": "Smith",
+            "FirstName": "Bob",
+            "Middle": "C",
+            "DOB": "1975-08-20",
+            "Gender": "M",
+            "Address": "321 Pine St",
+            "Address2": "Apt 5",
+            "City": "Oldtown",
+            "State": "NY",
+            "Zip": "10002"
+        },
+        "RenderingProvider": {
+            "FirstName": "Emily",
+            "LastName": "Brown",
+            "Middle": "",
+            "NPI": "9876543210"
+        },
         "ProcedureLines": [
             {
-                "ToothNumber": "1",
-                "Surface": "B",
                 "ProcedureCode": "D1206",
-                "ProcedureDescription": "Fluoride Varnish",
+                "Fee": "200",
                 "Units": "1",
-                "Fee": "230",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "UR",
+                "DiagnosisCodePointer": "",
+                "ToothNumber": "3",
+                "ToothSurfaceCode": "B",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-26"
             },
             {
-                "ToothNumber": "2",
-                "Surface": "M",
                 "ProcedureCode": "D2140",
-                "ProcedureDescription": "Amalgam Filling",
+                "Fee": "150",
                 "Units": "1",
-                "Fee": "190",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "LL",
+                "DiagnosisCodePointer": "",
+                "ToothNumber": "4",
+                "ToothSurfaceCode": "M",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-26"
             }
         ]
     },
     {
-        "ClaimID": "CLM0010",
-        "PatientID": "PAT010",
-        "PatientFirstName": "Ethan",
-        "PatientLastName": "Wilson",
-        "PatientDOB": "1987-04-18",
-        "PatientGender": "M",
-        "PatientAddress": "123 Birch St",
-        "PatientCity": "Northeast",
-        "PatientState": "CA",
-        "PatientZip": "90215",
-        "SubscriberID": "SUB132",
-        "InsurancePayerName": "Prime Dental",
-        "InsurancePayerID": "12353",
-        "ProviderNPI": "1234567898",
-        "ProviderFirstName": "Olivia",
-        "ProviderLastName": "Hall",
-        "ProviderTaxonomy": "207Q00000X",
-        "ServiceDate": "2025-12-04",
-        "PlaceOfService": "11",
+        "ClaimDetails": {
+            "ClaimID": "CLM0003",
+            "ClaimAmount": "500",
+            "PlaceOfService": "11",
+            "FacilityCode": "01",
+            "PatientSignatureOnFile": "Y",
+            "InsuranceAssignment": "Y",
+            "ReleaseOfInformation": "Y",
+            "TreatmentResultingCode": "B",
+            "ICN": "ICN125"
+        },
+        "Payer": {
+            "Name": "Premium Dental Insurance",
+            "PayerID": "12346"
+        },
+        "BillingProvider": {
+            "ProviderName": "Dr. Sarah Miller",
+            "NPI": "1234567891",
+            "Address": "234 Oak St",
+            "Address2": "Apt 201",
+            "City": "Smalltown",
+            "State": "TX",
+            "Zip": "75001",
+            "TaxID": "987654322",
+            "Taxonomy": "207Q00000X"
+        },
+        "Subscriber": {
+            "SubscriberID": "SUB125",
+            "LastName": "Johnson",
+            "FirstName": "Emily",
+            "Middle": "B",
+            "DOB": "1992-02-10",
+            "Gender": "F",
+            "Address": "789 Pine St",
+            "Address2": "Unit 8",
+            "City": "Largetown",
+            "State": "TX",
+            "Zip": "75002"
+        },
+        "RenderingProvider": {
+            "FirstName": "Sarah",
+            "LastName": "Miller",
+            "Middle": "",
+            "NPI": "1239876544"
+        },
         "ProcedureLines": [
             {
-                "ToothNumber": "3",
-                "Surface": "B",
-                "ProcedureCode": "D1110",
-                "ProcedureDescription": "Prophylaxis Adult",
+                "ProcedureCode": "D1206",
+                "Fee": "200",
                 "Units": "1",
-                "Fee": "240",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "UR",
+                "DiagnosisCodePointer": "",
+                "ToothNumber": "5",
+                "ToothSurfaceCode": "B",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-27"
             },
             {
-                "ToothNumber": "4",
-                "Surface": "M",
-                "ProcedureCode": "D1120",
-                "ProcedureDescription": "Prophylaxis Child",
+                "ProcedureCode": "D2140",
+                "Fee": "150",
                 "Units": "1",
-                "Fee": "170",
-                "DiagnosisCode": "",
-                "ProcedureModifier": ""
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "LL",
+                "DiagnosisCodePointer": "",
+                "ToothNumber": "6",
+                "ToothSurfaceCode": "M",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-27"
+            }
+        ]
+    },
+    {
+        "ClaimDetails": {
+            "ClaimID": "CLM0004",
+            "ClaimAmount": "600",
+            "PlaceOfService": "11",
+            "FacilityCode": "01",
+            "PatientSignatureOnFile": "Y",
+            "InsuranceAssignment": "Y",
+            "ReleaseOfInformation": "Y",
+            "TreatmentResultingCode": "B",
+            "ICN": "ICN126"
+        },
+        "Payer": {
+            "Name": "Top Tier Dental",
+            "PayerID": "12347"
+        },
+        "BillingProvider": {
+            "ProviderName": "Dr. Michael Adams",
+            "NPI": "1234567892",
+            "Address": "567 Birch St",
+            "Address2": "",
+            "City": "Midtown",
+            "State": "CA",
+            "Zip": "90212",
+            "TaxID": "987654323",
+            "Taxonomy": "207Q00000X"
+        },
+        "Subscriber": {
+            "SubscriberID": "SUB126",
+            "LastName": "Williams",
+            "FirstName": "Chris",
+            "Middle": "D",
+            "DOB": "1985-03-15",
+            "Gender": "M",
+            "Address": "456 Maple St",
+            "Address2": "Unit 3",
+            "City": "Westtown",
+            "State": "CA",
+            "Zip": "90213"
+        },
+        "RenderingProvider": {
+            "FirstName": "Michael",
+            "LastName": "Adams",
+            "Middle": "",
+            "NPI": "1239876545"
+        },
+        "ProcedureLines": [
+            {
+                "ProcedureCode": "D1110",
+                "Fee": "200",
+                "Units": "1",
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "UR",
+                "DiagnosisCodePointer": "",
+                "ToothNumber": "7",
+                "ToothSurfaceCode": "B",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-28"
+            },
+            {
+                "ProcedureCode": "D1120",
+                "Fee": "150",
+                "Units": "1",
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "LL",
+                "DiagnosisCodePointer": "",
+                "ToothNumber": "8",
+                "ToothSurfaceCode": "M",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-28"
+            }
+        ]
+    },
+    {
+        "ClaimDetails": {
+            "ClaimID": "CLM0005",
+            "ClaimAmount": "350",
+            "PlaceOfService": "11",
+            "FacilityCode": "01",
+            "PatientSignatureOnFile": "Y",
+            "InsuranceAssignment": "Y",
+            "ReleaseOfInformation": "Y",
+            "TreatmentResultingCode": "B",
+            "ICN": "ICN127"
+        },
+        "Payer": {
+            "Name": "Reliable Dental",
+            "PayerID": "12348"
+        },
+        "BillingProvider": {
+            "ProviderName": "Dr. Laura White",
+            "NPI": "1234567893",
+            "Address": "890 Cedar St",
+            "Address2": "Unit 4",
+            "City": "Easttown",
+            "State": "NV",
+            "Zip": "89012",
+            "TaxID": "987654324",
+            "Taxonomy": "207Q00000X"
+        },
+        "Subscriber": {
+            "SubscriberID": "SUB127",
+            "LastName": "Taylor",
+            "FirstName": "Amanda",
+            "Middle": "E",
+            "DOB": "1990-07-25",
+            "Gender": "F",
+            "Address": "123 Oak St",
+            "Address2": "Suite 5",
+            "City": "Southtown",
+            "State": "NV",
+            "Zip": "89013"
+        },
+        "RenderingProvider": {
+            "FirstName": "Laura",
+            "LastName": "White",
+            "Middle": "",
+            "NPI": "1239876546"
+        },
+        "ProcedureLines": [
+            {
+                "ProcedureCode": "D1206",
+                "Fee": "250",
+                "Units": "1",
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "UR",
+                "DiagnosisCodePointer": "",
+                "ToothNumber": "9",
+                "ToothSurfaceCode": "B",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-29"
+            },
+            {
+                "ProcedureCode": "D2140",
+                "Fee": "200",
+                "Units": "1",
+                "Quantity": "1",
+                "ReplacementIndicator": "",
+                "AreaOfOralCavity": "LL",
+                "DiagnosisCodePointer": "",
+                "ToothNumber": "10",
+                "ToothSurfaceCode": "M",
+                "ToothSystem": "JP",
+                "ProcedureDate": "2025-11-29"
             }
         ]
     }
