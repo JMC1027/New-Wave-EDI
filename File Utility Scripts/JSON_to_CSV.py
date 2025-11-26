@@ -1,79 +1,107 @@
-import json
+import os 
 import csv
+import json
 from pathlib import Path
 
 def json_to_csv(json_path, output_folder="Output/CSV_Output"):
-    json_path = Path(json_path)
+    # Ensure the output folder exists
     output_folder = Path(output_folder)
-
-    # Create output folder if it doesn't exist
     output_folder.mkdir(parents=True, exist_ok=True)
 
-    # Output CSV file path
-    csv_path = output_folder / (json_path.stem + ".csv")
+    base_name = os.path.splitext(os.path.basename(json_path))[0]
 
-    # Read JSON data
-    with json_path.open(mode='r', encoding='utf-8') as f:
+    # Define the path for the output CSV
+    csv_path = output_folder / (base_name + ".csv")
+
+    with open(json_path, 'r', encoding="utf-8") as f:
         data = json.load(f)
 
-    # Prepare CSV rows
-    csv_rows = []
-
-    # CSV headers
-    headers = [
-        "ClaimID","PatientID","PatientFirstName","PatientLastName","PatientDOB","PatientGender",
-        "PatientAddress","PatientCity","PatientState","PatientZip",
-        "SubscriberID","InsurancePayerName","InsurancePayerID",
-        "ProviderNPI","ProviderFirstName","ProviderLastName","ProviderTaxonomy",
-        "ServiceDate","PlaceOfService",
-        "ToothNumber","Surface","ProcedureCode","ProcedureDescription",
-        "Units","Fee","DiagnosisCode","ProcedureModifier"
-    ]
-
-    # Flatten JSON
-    for claim in data:
-        for line in claim.get("ProcedureLines", []):
-            row = {header: "" for header in headers}  # initialize empty row
-            row.update({
-                "ClaimID": claim.get("ClaimID", ""),
-                "PatientID": claim.get("PatientID", ""),
-                "PatientFirstName": claim.get("PatientFirstName", ""),
-                "PatientLastName": claim.get("PatientLastName", ""),
-                "PatientDOB": claim.get("PatientDOB", ""),
-                "PatientGender": claim.get("PatientGender", ""),
-                "PatientAddress": claim.get("PatientAddress", ""),
-                "PatientCity": claim.get("PatientCity", ""),
-                "PatientState": claim.get("PatientState", ""),
-                "PatientZip": claim.get("PatientZip", ""),
-                "SubscriberID": claim.get("SubscriberID", ""),
-                "InsurancePayerName": claim.get("InsurancePayerName", ""),
-                "InsurancePayerID": claim.get("InsurancePayerID", ""),
-                "ProviderNPI": claim.get("ProviderNPI", ""),
-                "ProviderFirstName": claim.get("ProviderFirstName", ""),
-                "ProviderLastName": claim.get("ProviderLastName", ""),
-                "ProviderTaxonomy": claim.get("ProviderTaxonomy", ""),
-                "ServiceDate": claim.get("ServiceDate", ""),
-                "PlaceOfService": claim.get("PlaceOfService", ""),
-                "ToothNumber": line.get("ToothNumber", ""),
-                "Surface": line.get("Surface", ""),
-                "ProcedureCode": line.get("ProcedureCode", ""),
-                "ProcedureDescription": line.get("ProcedureDescription", ""),
-                "Units": line.get("Units", ""),
-                "Fee": line.get("Fee", ""),
-                "DiagnosisCode": line.get("DiagnosisCode", ""),
-                "ProcedureModifier": line.get("ProcedureModifier", "")
-            })
-            csv_rows.append(row)
-
-    # Write CSV
-    with csv_path.open(mode='w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=headers)
+    # Open CSV file for writing
+    with open(csv_path, 'w', newline='', encoding="utf-8") as csvfile:
+        fieldnames = [
+            "ClaimID", "ClaimAmount", "PlaceOfService", "FacilityCode", "PatientSignatureOnFile", 
+            "InsuranceAssignment", "ReleaseOfInformation", "TreatmentResultingCode", "ICN", 
+            "PayerName", "PayerID", 
+            "BillingProviderName", "BillingProviderNPI", "BillingProviderAddress", "BillingProviderAddress2", 
+            "BillingProviderCity", "BillingProviderState", "BillingProviderZip", "BillingProviderTaxID", 
+            "BillingProviderTaxonomy",
+            "SubscriberID", "SubscriberLastName", "SubscriberFirstName", "SubscriberMiddle", "SubscriberDOB", 
+            "SubscriberGender", "SubscriberAddress", "SubscriberAddress2", "SubscriberCity", "SubscriberState", 
+            "SubscriberZip", 
+            "RenderingProviderFirstName", "RenderingProviderLastName", "RenderingProviderMiddle", 
+            "RenderingProviderNPI", 
+            "ProcedureCode", "Fee", "Units", "Quantity", "ReplacementIndicator", "AreaOfOralCavity", 
+            "DiagnosisCodePointer", "ToothNumber", "ToothSurfaceCode", "ToothSystem", "ProcedureDate"
+        ]
+        
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerows(csv_rows)
 
-    print(f"CSV created at: {csv_path}")
+        # Process each claim
+        for claim in data:
+            claim_details = claim["ClaimDetails"]
+            payer = claim["Payer"]
+            billing_provider = claim["BillingProvider"]
+            subscriber = claim["Subscriber"]
+            rendering_provider = claim["RenderingProvider"]
+            procedure_lines = claim["ProcedureLines"]
 
+            # For each procedure line, we'll write a separate row in the CSV
+            for procedure in procedure_lines:
+                row = {
+                    "ClaimID": claim_details.get("ClaimID", ""),
+                    "ClaimAmount": claim_details.get("ClaimAmount", ""),
+                    "PlaceOfService": claim_details.get("PlaceOfService", ""),
+                    "FacilityCode": claim_details.get("FacilityCode", ""),
+                    "PatientSignatureOnFile": claim_details.get("PatientSignatureOnFile", ""),
+                    "InsuranceAssignment": claim_details.get("InsuranceAssignment", ""),
+                    "ReleaseOfInformation": claim_details.get("ReleaseOfInformation", ""),
+                    "TreatmentResultingCode": claim_details.get("TreatmentResultingCode", ""),
+                    "ICN": claim_details.get("ICN", ""),
+                    "PayerName": payer.get("Name", ""),
+                    "PayerID": payer.get("PayerID", ""),
+                    "BillingProviderName": billing_provider.get("ProviderName", ""),
+                    "BillingProviderNPI": billing_provider.get("NPI", ""),
+                    "BillingProviderAddress": billing_provider.get("Address", ""),
+                    "BillingProviderAddress2": billing_provider.get("Address2", ""),
+                    "BillingProviderCity": billing_provider.get("City", ""),
+                    "BillingProviderState": billing_provider.get("State", ""),
+                    "BillingProviderZip": billing_provider.get("Zip", ""),
+                    "BillingProviderTaxID": billing_provider.get("TaxID", ""),
+                    "BillingProviderTaxonomy": billing_provider.get("Taxonomy", ""),
+                    "SubscriberID": subscriber.get("SubscriberID", ""),
+                    "SubscriberLastName": subscriber.get("LastName", ""),
+                    "SubscriberFirstName": subscriber.get("FirstName", ""),
+                    "SubscriberMiddle": subscriber.get("Middle", ""),
+                    "SubscriberDOB": subscriber.get("DOB", ""),
+                    "SubscriberGender": subscriber.get("Gender", ""),
+                    "SubscriberAddress": subscriber.get("Address", ""),
+                    "SubscriberAddress2": subscriber.get("Address2", ""),
+                    "SubscriberCity": subscriber.get("City", ""),
+                    "SubscriberState": subscriber.get("State", ""),
+                    "SubscriberZip": subscriber.get("Zip", ""),
+                    "RenderingProviderFirstName": rendering_provider.get("FirstName", ""),
+                    "RenderingProviderLastName": rendering_provider.get("LastName", ""),
+                    "RenderingProviderMiddle": rendering_provider.get("Middle", ""),
+                    "RenderingProviderNPI": rendering_provider.get("NPI", ""),
+                    "ProcedureCode": procedure.get("ProcedureCode", ""),
+                    "Fee": procedure.get("Fee", ""),
+                    "Units": procedure.get("Units", ""),
+                    "Quantity": procedure.get("Quantity", ""),
+                    "ReplacementIndicator": procedure.get("ReplacementIndicator", ""),
+                    "AreaOfOralCavity": procedure.get("AreaOfOralCavity", ""),
+                    "DiagnosisCodePointer": procedure.get("DiagnosisCodePointer", ""),
+                    "ToothNumber": procedure.get("ToothNumber", ""),
+                    "ToothSurfaceCode": procedure.get("ToothSurfaceCode", ""),
+                    "ToothSystem": procedure.get("ToothSystem", ""),
+                    "ProcedureDate": procedure.get("ProcedureDate", "")
+                }
 
+                # Write row to CSV
+                writer.writerow(row)
+
+    print(f"CSV file created at: {csv_path}")
+
+# Example usage
 json_file = "Output/JSON_Output/mockedDentalClaim.json"
 json_to_csv(json_file)
-
