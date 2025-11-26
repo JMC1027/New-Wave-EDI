@@ -8,6 +8,7 @@ def csv_to_nested_json(csv_path, output_folder="Output/JSON_Output"):
     output_folder = Path(output_folder)
     output_folder.mkdir(parents=True, exist_ok=True)
 
+    # Create JSON output file path
     json_path = output_folder / (csv_path.stem + ".json")
 
     with csv_path.open("r", encoding="utf-8") as f:
@@ -24,6 +25,7 @@ def csv_to_nested_json(csv_path, output_folder="Output/JSON_Output"):
         "ProcedureLines": []
     })
 
+    # Iterate through the rows and build nested JSON
     for row in rows:
         claim_id = row.get("ClaimID", "")
         claim = claims_dict[claim_id]
@@ -102,12 +104,11 @@ def csv_to_nested_json(csv_path, output_folder="Output/JSON_Output"):
     # Convert dict to list
     claims_list = list(claims_dict.values())
 
-    # Write JSON
+    # Write JSON output
     with json_path.open("w", encoding="utf-8") as f:
         json.dump(claims_list, f, indent=4)
 
     print(f"Nested JSON created at: {json_path}")
-
 
 # Example usage
 csv_file = "Output/CSV_Output/mockedDentalClaim.csv"
